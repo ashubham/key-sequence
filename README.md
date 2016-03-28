@@ -5,7 +5,7 @@
 
 Detect a sequence of key presses, and call the supplied callback.
 
-## Usage
+### Usage
 
 ```javascript
 var keySequence = require('key-sequence'); // CommonJS style
@@ -13,7 +13,7 @@ var keySequence = require('key-sequence'); // CommonJS style
 
 // '+' is the regex '+' (denotes repeatable characters)
 // The below matches 'omg<enter>'/'omgggg<enter>'/'omggggggg<enter>' ...
-var onKey = keySequence(['o','m','g','\n'], function () {
+var onKey = keySequence(['o','m','g+','\n'], function () {
     // Do what needs to be done when the key sequence is detected.
     console('OMG it works!');
 });
@@ -23,11 +23,11 @@ document.addEventListener('keypress', function(e) {
 });
 ```
 
-## Features
+### Features
 
 Supports `+` and `*` as wildcards to denote repeating characters.
 
-## Wait, but why ?
+### Wait, but why ?
 
 Using a regex is slow and cannot get less elegant, its `O(n)` in the size of your total input,
 on every single keystroke.
@@ -35,12 +35,9 @@ on every single keystroke.
 `key-sequence` generates a DFA and maintains the state. `O(1)` every single keystroke.
 Can think of it as a regex which accepts streaming input.
 
-## Coming soon
+### Coming soon
 
-> Support for more Regex metacharacters like `\s`, `|` etc.
-> Support for keycodes to enable usage metakeys like `<ctrl>`, `<alt>`
+> - Support for more Regex metacharacters like `\s`, `|` etc.
+> - Support for keycodes to enable usage metakeys like `<ctrl>`, `<alt>`
 
-## Theory
-
-
-
+### Theory
