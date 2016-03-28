@@ -1,7 +1,7 @@
 {
   "name": "key-sequence",
   "version": "1.0.0",
-  "description": "",
+  "description": "Detect a sequence of keys being pressed.",
   "main": "index.js",
   "scripts": {
     "test": "jasmine"
@@ -13,7 +13,10 @@
   "keywords": [
     "key",
     "sequence",
-    "detect"
+    "detect",
+    "streaming",
+    "dfa",
+    "regex"
   ],
   "author": "ashubham@gmail.com",
   "license": "MIT",
