@@ -12,7 +12,7 @@ var keySequence = require('key-sequence'); // CommonJS style
 <script src="key-sequence.min.js"></script> // ES5 style browser imports.
 
 // '+' is the regex '+' (denotes repeatable characters)
-var onKey = keySequence(['o','m+','g'], function () {
+var onKey = keySequence(['o','m+','g'], function () { // matches 'omg'/'ommmg'/'ommmmmmmg' ...
     // Do what needs to be done when the key sequence is detected.
     console('OMG it works!');
 });
