@@ -2,7 +2,9 @@
 <a href="https://travis-ci.org/ashubham/key-sequence">
   <img src="https://api.travis-ci.org/ashubham/key-sequence.svg?branch=master" class="badge">
 </a>
-[![Coverage Status](https://coveralls.io/repos/github/ashubham/key-sequence/badge.svg?branch=master)](https://coveralls.io/github/ashubham/key-sequence?branch=master)
+<a href='https://coveralls.io/github/ashubham/key-sequence?branch=master'>
+    <img src='https://coveralls.io/repos/github/ashubham/key-sequence/badge.svg?branch=master' alt='Coverage Status' />
+</a>
 
 Detect a sequence of key presses, and call the supplied callback.
 
