@@ -44,10 +44,10 @@ onKey('x');
 ### Features
 
 * Supports `+` and `*` as wildcards to denote repeating characters.
-* Support for keyCodes, so you can use metakeys like <ctrl>, <alt> in the sequence.
+* Support for keyCodes, so you can use metakeys like `<ctrl>`, `<alt>` in the sequence.
 * Support for meta characters like `\s`, `.` etc.
 
-### Wait, but why ?
+### Wait, but why ? I'd rather use a regex.
 
 Using a regex is slow and cannot get less elegant, its `O(n)` in the size of your total input,
 on every single keystroke.
