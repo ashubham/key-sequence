@@ -109,5 +109,17 @@ describe('getKeySequenceDetector', function () {
         detector('\b', event);
         detector('c', event);
         expect(onSuccess2).not.toHaveBeenCalled();
+
+        var onSuccess3 = jasmine.createSpy();
+        var event3 = {};
+        detector = onKeySequence([97, '\\s+', '.', 'c'], onSuccess3);
+        detector('a', event3);
+        detector(' ', event3);
+        detector(' ', event3);
+        detector('\t', event3);
+        detector('\n', event3);
+        detector('x', event3);
+        detector('c', event3);
+        expect(onSuccess3).toHaveBeenCalledWith(event3);
     })
 });
