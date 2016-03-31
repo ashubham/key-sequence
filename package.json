@@ -4,7 +4,7 @@
   "description": "Detect a sequence of keys being pressed.",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "istanbul cover jasmine && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -24,8 +24,10 @@
     "url": "https://github.com/ashubham/key-sequence/issues"
   },
   "devDependencies": {
+    "coveralls": "^2.11.9",
+    "istanbul": "^0.4.2",
     "jasmine": "^2.3.2"
   },
-  "homepage": "https://github.com/ashubham/key-sequence#readme"
+  "homepage": "https://github.com/ashubham/key-sequence#readme",
+  "dependencies": {}
 }
-

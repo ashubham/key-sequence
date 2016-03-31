@@ -55,4 +55,59 @@ describe('getKeySequenceDetector', function () {
         detector('c', event);
         expect(onSuccess).toHaveBeenCalledWith(event);
     });
+
+    it('should match keycodes as well', function () {
+        var onSuccess = jasmine.createSpy();
+        var event = {};
+        var detector = onKeySequence([97, 'b*', 'c'], onSuccess);
+        detector('a', event);
+        detector('b', event);
+        detector('c', event);
+        expect(onSuccess).toHaveBeenCalledWith(event);
+
+        detector('a', event);
+        detector(98, event);
+        detector(98, event);
+        detector('c', event);
+        expect(onSuccess).toHaveBeenCalledWith(event);
+    });
+
+    it('should match keycodes with wildcards', function () {
+        var onSuccess = jasmine.createSpy();
+        var event = {};
+        var detector = onKeySequence([97, '98*', 'c'], onSuccess);
+        detector('a', event);
+        detector('b', event);
+        detector('c', event);
+        expect(onSuccess).toHaveBeenCalledWith(event);
+
+        detector(97, event);
+        detector(98, event);
+        detector(98, event);
+        detector('c', event);
+        expect(onSuccess).toHaveBeenCalledWith(event);
+    });
+
+    it('should match special regex metacharacters', function () {
+        var onSuccess = jasmine.createSpy();
+        var event = {};
+        var detector = onKeySequence([97, '\\s+', 'c'], onSuccess);
+        detector('a', event);
+        detector(' ', event);
+        detector(' ', event);
+        detector('\t', event);
+        detector('\n', event);
+        detector('c', event);
+        expect(onSuccess).toHaveBeenCalledWith(event);
+
+        var onSuccess2 = jasmine.createSpy();
+        detector = onKeySequence([97, '\\s+', 'c'], onSuccess2);
+        detector('a', event);
+        detector(' ', event);
+        detector(' ', event);
+        detector('\t', event);
+        detector('\b', event);
+        detector('c', event);
+        expect(onSuccess2).not.toHaveBeenCalled();
+    })
 });
