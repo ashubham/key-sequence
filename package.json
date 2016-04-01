@@ -1,6 +1,6 @@
 {
   "name": "key-sequence",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Detect a sequence of keys being pressed.",
   "main": "index.js",
   "scripts": {

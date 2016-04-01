@@ -5,17 +5,18 @@
 <a href='https://coveralls.io/github/ashubham/key-sequence?branch=master'>
     <img src='https://coveralls.io/repos/github/ashubham/key-sequence/badge.svg?branch=master' alt='Coverage Status' />
 </a>
+[![NPM](https://nodei.co/npm/key-sequence.png?downloads=true&stars=true&downloadRank=true)](https://www.npmjs.org/package/key-sequence)
 
-A featherweight utility to detect a sequence of key presses, and call the supplied callback. Fast!
+A featherweight utility to detect a sequence of key presses or a key stream, and call the supplied callback. Fast!
 
 ### Usage
 
 ```javascript
-var keySequence = require('key-sequence'); // CommonJS style
-<script src="key-sequence.min.js"></script> // ES5 style browser imports.
+var keySequence = require('key-sequence'); // CommonJS
+<script src="key-sequence.min.js"></script> // Browser
 
-// '+' is the regex '+' (denotes repeatable characters)
-// The below matches 'omg<enter>'/'omgggg<enter>'/'o     mggggggg<enter>' ...
+// Regex '+'/'*' (denotes repeatable characters)
+// The below matches 'omg<enter>'/'omgggg<enter>'/'o   mggggggg<enter>'
 var onKey = keySequence(['o', '\s*', 'm', 'g+', '\n'], function (evt) {
     // Do what needs to be done when the key sequence is detected.
     console('OMG it works!', evt);
@@ -25,6 +26,10 @@ var onKey = keySequence(['o', '\s*', 'm', 'g+', '\n'], function (evt) {
 var onKey = keySequence([38, 38, 40, 40, 37, 39, 37, 39, 'b', 'a'], function() {
     console.log('Achievement unlocked!!');
 });
+
+// Use with Observables
+sourceKeyStream.subscribe(
+  k => onKey(k));
 
 // Can pass keycode using e.which using jQuery or events.
 $(document).keypress(function(e) {
@@ -36,7 +41,6 @@ onKey('x');
 
 
 /* Some more supported keysequences: */
-
 [17, 'c'] //The classic <ctrl> and 'c'
 ['I', '.*', 'U'] // I <anything in between> U
 ```
