@@ -5,6 +5,7 @@
 <a href='https://coveralls.io/github/ashubham/key-sequence?branch=master'>
     <img src='https://coveralls.io/repos/github/ashubham/key-sequence/badge.svg?branch=master' alt='Coverage Status' />
 </a>
+
 [![NPM](https://nodei.co/npm/key-sequence.png?downloads=true&stars=true&downloadRank=true)](https://www.npmjs.org/package/key-sequence)
 
 A featherweight utility to detect a sequence of key presses or a key stream, and call the supplied callback. Fast!
@@ -17,13 +18,13 @@ var keySequence = require('key-sequence'); // CommonJS
 
 // Regex '+'/'*' (denotes repeatable characters)
 // The below matches 'omg<enter>'/'omgggg<enter>'/'o   mggggggg<enter>'
-var onKey = keySequence(['o', '\s*', 'm', 'g+', '\n'], function (evt) {
+var onKey = keySequence(['o', '\s*', 'm', 'g+', '\n'], (evt) => {
     // Do what needs to be done when the key sequence is detected.
     console('OMG it works!', evt);
 });
 
 // Konami code
-var onKey = keySequence([38, 38, 40, 40, 37, 39, 37, 39, 'b', 'a'], function() {
+var onKey = keySequence([38, 38, 40, 40, 37, 39, 37, 39, 'b', 'a'], () => {
     console.log('Achievement unlocked!!');
 });
 
