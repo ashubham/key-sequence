@@ -8,7 +8,7 @@
 
 [![NPM](https://nodei.co/npm/key-sequence.png?downloads=true&stars=true&downloadRank=true)](https://www.npmjs.org/package/key-sequence)
 
-A featherweight utility to detect a sequence of key presses or a key stream, and call the supplied callback. Fast!
+A featherweight utility to detect a sequence of key presses or a stream, and call the supplied callback. Fast!
 
 ### Usage
 
